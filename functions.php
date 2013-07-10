@@ -73,7 +73,8 @@ function demomentsomtres_restaurant_dish_list_shortcode($attr, $content) {
     $type = $attr['type'];
     $count = (!isset($attr['count'])) ? 1 : $attr['count'];
     $empty = (!isset($attr['empty'])) ? "" : $attr['empty'];
-    $hiddenTitles = (!isset($attr['hidden_titles'])) ? false : true;
+    $hiddenTitles = in_array('hidden_titles', $attr) ? true : false;
+    //$hiddenTitles = (!isset($attr['hidden_titles'])) ? false : true;
     $titleFormat = (!isset($attr['title_format'])) ? 'h3' : $attr['title_format'];
     $allDishLists = demomentsomtres_restaurant_get_dish_lists($type, $count);
     $output = '';
@@ -91,10 +92,11 @@ function demomentsomtres_restaurant_dish_list_shortcode($attr, $content) {
             $output .= "</div>";
         endforeach;
     endif;
-    echo '<pre style="display:block;">';
-    print_r($attr);
-    print_r($allDishLists);
-    echo '</pre>';
+//    echo '<pre style="display:hidden;">';
+//    print_r($attr);
+//    print_r('$hidden'.$hiddenTitles);
+//    print_r($allDishLists);
+//    echo '</pre>';
     return do_shortcode($content . apply_filters('the_content', $output));
 }
 
