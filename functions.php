@@ -61,7 +61,7 @@ function demomentsomtres_restaurant_create_dish_lists() {
 
 /**
  * Manages dish list shortcode
- * @since 0.0
+ * @since 0.1
  * @param array $attr
  * @param string $content
  * @return string the Content with the dishlist
@@ -91,9 +91,10 @@ function demomentsomtres_restaurant_dish_list_shortcode($attr, $content) {
             $output .= "</div>";
         endforeach;
     endif;
-//    echo '<pre style="display:block;">';
-//    print_r($allDishLists);
-//    echo '</pre>';
+    echo '<pre style="display:block;">';
+    print_r($attr);
+    print_r($allDishLists);
+    echo '</pre>';
     return do_shortcode($content . apply_filters('the_content', $output));
 }
 
