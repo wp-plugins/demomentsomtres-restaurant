@@ -7,7 +7,7 @@
   Plugin Name: DeMomentSomTres Restaurant
   Plugin URI: http://DeMomentSomTres.com/english/wordpress-plugin-restaurant
   Description: DeMomentSomTres Restaurants creates a custom type to represent restaurant lists and menus and show them using shortcodes and menu entries.
-  Version: 1.0.0
+  Version: 1.1.0
   Author: DeMomentSomTres
   Author URI: http://DeMomentSomTres.com
   License: GPLv2 or later
@@ -52,6 +52,7 @@ add_shortcode('veg', 'demomentsomtres_restaurant_veg_shortcode');
 add_shortcode('P', 'demomentsomtres_restaurant_p_shortcode');
 add_action('add_meta_boxes','demomentsomtres_restaurant_expiry_date');
 add_action('save_post','demomentsomtres_restaurant_meta_save');
-add_action( 'pre_get_posts', 'demomentsomtres_restaurant_filter_expired' );
+//add_action( 'pre_get_posts', 'demomentsomtres_restaurant_filter_expired' ); //v1.1.0-
+add_action('the_content', 'demomentsomtres_restaurant_content_expired_filter');
 add_action('admin_head','demomentsomtres_restaurant_insert_buttons');
 ?>

@@ -2,9 +2,8 @@
 Contributors: marcqueralt
 Tags: custom post type, restaurant, dishes
 Donate link: http://DeMomentSomTres.com
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 3.5
-Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2 or later
 
@@ -42,6 +41,14 @@ You can call the restaurant archive to show the contents on an archive basis.
 
 No special requirements.
 
+To customize expiry message you can use css class .demomentsomtres-restaurant-expired
+
 == Changelog ==
 
-TBD
+=1.1.0=
+Changes added to allow:
+* an archive view of dishlists avoiding them to be always hidden in order to avoid 404 errors and help SEO positioning.
+* validity range showed at the top of posts and excerpt.
+
+=1.0.0=
+Initial release

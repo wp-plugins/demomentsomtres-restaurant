@@ -129,6 +129,15 @@ function demomentsomtres_restaurant_get_dish_lists($type, $count = 1) {
                 'terms' => $type,
             ),
         ),
+        //v1.1.0+ start
+        'meta_query' => array(
+            array(
+                'key' => 'demomentsomtres-restaurant-expiry-date',
+                'value' => date('Y-m-d'),
+                'compare' => '>=',
+            ),
+        ),
+            //v1.1.0+ end
     );
     $newQuery = new WP_Query();
     $newQuery->query($queryArgs);
@@ -239,4 +248,65 @@ function demomentsomtres_restaurant_add_tinymce_plugin($plugin_array) {
     return $plugin_array;
 }
 
+/**
+ * Modifies content post to insert the expiry date
+ * @global mixed $post
+ * @param text $content
+ * @return string 
+ * @since 1.1.0
+ */
+function demomentsomtres_restaurant_content_expired_filter($content) {
+    global $post;
+    if (($post->post_type == 'dish-list') && in_the_loop()):
+        $newText = demomentsomtres_restaurant_expired_message($post->ID);
+    else:
+        $newText = '';
+    endif;
+        $content = $newText . $content;
+    return $content;
+}
+
+/**
+ * Checks if the post is expired
+ * @param integer $postid the post to test
+ * @return boolean
+ * @since 1.1.0
+ */
+function demomentsomtres_restaurant_is_expired($postid) {
+    $expiry_date = demomentsomtres_restaurant_get_expiry_date($postid);
+    if ($expiry_date):
+        $now = date('Y-m-d');
+        return ($now >= $expiry_date);
+    else:
+        return false;
+    endif;
+}
+
+/**
+ * Generates a message to add to the dish list if it is expired
+ * @param integer $postid the post id
+ * @return string the message to attach
+ * @since 1.1.0
+ */
+function demomentsomtres_restaurant_expired_message($postid) {
+    if (demomentsomtres_restaurant_is_expired($postid)):
+        return '<span class="demomentsomtres-restaurant-expired">' . demomentsomtres_restaurant_pretty_expiry_date($postid) . '</span>';
+    else:
+        return '';
+    endif;
+}
+
+/**
+ * Formats the expiry date to be beautiful
+ * @param integer $postid   the post to consider
+ * @return string the date ready to be printed
+ * @since 1.1.0
+ */
+function demomentsomtres_restaurant_pretty_expiry_date($postid) {
+    $dateFormat=get_option('date_format');
+    $dateDB=demomentsomtres_restaurant_get_expiry_date($postid);
+    $date=  strtotime($dateDB);
+    $text=date_i18n($dateFormat,$date);
+    return $text;
+}
 ?>
