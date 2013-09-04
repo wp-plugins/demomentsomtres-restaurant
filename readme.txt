@@ -4,7 +4,6 @@ Tags: custom post type, restaurant, dishes
 Donate link: http://DeMomentSomTres.com
 Version: 1.1.0
 Requires at least: 3.5
-Stable tag: trunk
 License: GPLv2 or later
 
 DeMomentSomTres Restaurants is specifically designed to Restaurants, Bars and cafeterias in order to show their menus and dishes in an easy to mantain way.
@@ -15,11 +14,13 @@ DeMomentSomTres Restaurants is specifically designed to Restaurants, Bars and ca
 
 It manages publish date and also expiry date.
 
+You can get more information about the component at the [this plugin author's website](http://DeMomentSomTres.com/english/wordpress-plugin-restaurant/ "This plugin page at DeMomentSomTres website")
+
 == Installation ==
 
 No special requirements.
 
-== FAQ ==
+== Frequently Asked Questions ==
 
 = How do I show the last dish-list of a certain type inside a post or page =
 
@@ -36,10 +37,9 @@ The plugin [Recent Posts Widget Extended](http://wordpress.org/plugins/recent-po
 = Additional shortcodes =
 
 There'are the following additional shortcodes with the following features:
-
-* [ECO]: inserts an <i class="icon-eco">Ecological</i> element.
-* [PROX]: inserts an <i class="icon-prox">Proximity</i> element.
-* [P XXX]: inserts an <div class="price">XXX</div> element.
+* [ECO]: inserts an `<i class="icon-eco">Ecological</i>` element.
+* [PROX]: inserts an `<i class="icon-prox">Proximity</i>` element.
+* [P XXX]: inserts an `<div class="price">XXX</div>` element.
 
 = How do I show all the public dish lists =
 
@@ -47,7 +47,7 @@ You can call the restaurant archive to show the contents on an archive basis.
 
 = How to customize the message on expired dish lists =
 
-To customize expiry message you can use css class .demomentsomtres-restaurant-expired
+To customize expiry message you can use css class `.demomentsomtres-restaurant-expired`.
 
 == Changelog ==
 
