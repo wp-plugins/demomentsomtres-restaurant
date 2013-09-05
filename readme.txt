@@ -38,7 +38,7 @@ It can be installed as any other WordPress plugin. It doesn't have any special r
 
 = How do I show the last menu of a certain type inside a post or page =
 
-You can use the shortcode [demomentsomtres-restaurant-dish-list type=id count=N hidden_titles title_format="h3"] to show the N current dish lists of type id inside the post or page. 
+You can use the shortcode `[demomentsomtres-restaurant-dish-list type=id count=N hidden_titles title_format="h3"]` to show the N current dish lists of type id inside the post or page. 
 
 * Type id is required. 
 * Count is assumed to be 1 if not present. 
