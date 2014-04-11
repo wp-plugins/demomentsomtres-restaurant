@@ -7,7 +7,7 @@
   Plugin Name: DeMomentSomTres Restaurant
   Plugin URI: http://DeMomentSomTres.com/english/wordpress-plugin-restaurant
   Description: DeMomentSomTres Restaurants creates a custom type to represent restaurant lists and menus and show them using shortcodes and menu entries.
-  Version: 1.1.0
+  Version: 1.2
   Author: DeMomentSomTres
   Author URI: http://DeMomentSomTres.com
   License: GPLv2 or later
@@ -32,6 +32,7 @@
 define('DMS3_RESTAURANT_TEXT_DOMAIN', 'dms3-restaurant');
 define('DMS3_RESTAURANT_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('DMS3_RESTAURANT_PLUGIN_DIR',dirname( plugin_basename( __FILE__ ) ) );
+define('DMS3_RESTAURANT_OPTIONS','DMS3_RESTAURANT_OPTIONS');
 /* used when no value is specified for the expiry date */
 define('DMS3_RESTAURANT_LAST_DATE','9999-12-31');
 
@@ -42,6 +43,11 @@ if (!function_exists('add_action')) {
 }
 
 require_once DMS3_RESTAURANT_PLUGIN_PATH . 'functions.php';
+
+if (is_admin()):
+    require_once DMS3_RESTAURANT_PLUGIN_PATH . 'demomentsomtres-admin-helper.php';
+    require_once DMS3_RESTAURANT_PLUGIN_PATH . 'demomentsomtres-admin.php';
+endif;
 
 load_plugin_textdomain(DMS3_RESTAURANT_TEXT_DOMAIN, false, DMS3_RESTAURANT_PLUGIN_DIR . '/languages/');
 add_action('init', 'demomentsomtres_restaurant_create_dish_lists');
@@ -55,4 +61,6 @@ add_action('save_post','demomentsomtres_restaurant_meta_save');
 //add_action( 'pre_get_posts', 'demomentsomtres_restaurant_filter_expired' ); //v1.1.0-
 add_action('the_content', 'demomentsomtres_restaurant_content_expired_filter');
 add_action('admin_head','demomentsomtres_restaurant_insert_buttons');
+
+add_filter('tiny_mce_before_init','demomentsomtres_restaurant_tinymce_settings');
 ?>

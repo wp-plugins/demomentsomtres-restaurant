@@ -233,7 +233,7 @@ function demomentsomtres_restaurant_insert_buttons() {
  * @since 1.0
  */
 function demomentsomtres_restaurant_register_buttons($buttons) {
-    array_push($buttons, "dms3RestaurantEco", "dms3RestaurantVeg", "dms3RestaurantPrice");
+    array_push($buttons, "dms3RestaurantEco", "dms3RestaurantVeg", "dms3RestaurantPrice", "dms3RestaurantTemplate");
     return $buttons;
 }
 
@@ -262,7 +262,7 @@ function demomentsomtres_restaurant_content_expired_filter($content) {
     else:
         $newText = '';
     endif;
-        $content = $newText . $content;
+    $content = $newText . $content;
     return $content;
 }
 
@@ -303,10 +303,25 @@ function demomentsomtres_restaurant_expired_message($postid) {
  * @since 1.1.0
  */
 function demomentsomtres_restaurant_pretty_expiry_date($postid) {
-    $dateFormat=get_option('date_format');
-    $dateDB=demomentsomtres_restaurant_get_expiry_date($postid);
-    $date=  strtotime($dateDB);
-    $text=date_i18n($dateFormat,$date);
+    $dateFormat = get_option('date_format');
+    $dateDB = demomentsomtres_restaurant_get_expiry_date($postid);
+    $date = strtotime($dateDB);
+    $text = date_i18n($dateFormat, $date);
     return $text;
 }
+
+/**
+ * Configures tinymce settings
+ * @param array $settings
+ * @return array
+ * @since 1.2
+ */
+function demomentsomtres_restaurant_tinymce_settings($settings) {
+//    print_r(htmlentities(dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', '')));
+    $settings['dms3restauranttemplate'] = '<![CDATA[' . htmlentities(dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', '')) . ']]>';
+    $settings['dms3restauranttemplate'] = dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', '');
+//    echo '<pre>';print_r($settings);echo '</pre>';
+    return $settings;
+}
+
 ?>

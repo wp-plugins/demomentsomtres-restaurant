@@ -2,7 +2,7 @@
 Contributors: marcqueralt
 Tags: custom post type, restaurant, dishes
 Donate link: http://DeMomentSomTres.com
-Version: 1.1.0
+Version: 1.2
 Requires at least: 3.5
 License: GPLv2 or later
 
@@ -13,6 +13,8 @@ DeMomentSomTres Restaurants is specifically designed to Restaurants, Bars and ca
 DeMomentSomTres Restaurants is specifically designed to Restaurants, Bars and cafeterias in order to show their menus in an easy to mantain way.
 
 It manages publish date and also expiry date allowing you to plan activity.
+
+To help to standardize and help day menu management, a dishlist template has been added. Button added to tinyMCE editor and also administration page.
 
 You can get more information about the component at the [this plugin author's website](http://DeMomentSomTres.com/english/wordpress-plugin-restaurant/ "This plugin page at DeMomentSomTres website")
 
@@ -66,6 +68,9 @@ You can call the restaurant archive to show the contents on an archive basis.
 To customize expiry message you can use css class `.demomentsomtres-restaurant-expired`.
 
 == Changelog ==
+
+= 1.2 =
+* Dishlist template added in administration and tinymce button
 
 = 1.1.0 =
 
