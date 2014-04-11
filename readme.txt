@@ -1,7 +1,7 @@
 === DeMomentSomTres Restaurant ===
 Contributors: marcqueralt
 Tags: custom post type, restaurant, dishes
-Donate link: http://DeMomentSomTres.com
+Donate link: http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-restaurant/
 Version: 1.2
 Requires at least: 3.5
 License: GPLv2 or later
