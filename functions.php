@@ -73,19 +73,29 @@ function demomentsomtres_restaurant_dish_list_shortcode($attr, $content) {
     $type = $attr['type'];
     $count = (!isset($attr['count'])) ? 1 : $attr['count'];
     $empty = (!isset($attr['empty'])) ? "" : $attr['empty'];
+    $emptyurl = (!isset($attr['emptyurl'])) ? "" : $attr['emptyurl'];
+    $prefix = (!isset($attr['prefix'])) ? "" : $attr['prefix'];
+    $suffix = (!isset($attr['suffix'])) ? "" : $attr['suffix'];
+    $classes = (!isset($attr['classes'])) ? "" : " " . $attr['classes'];
     $hiddenTitles = in_array('hidden_titles', $attr) ? true : false;
     //$hiddenTitles = (!isset($attr['hidden_titles'])) ? false : true;
     $titleFormat = (!isset($attr['title_format'])) ? 'h3' : $attr['title_format'];
     $allDishLists = demomentsomtres_restaurant_get_dish_lists($type, $count);
     $output = '';
     if (count($allDishLists) == 0):
-        $output .= $empty;
+        if ($emptyurl == ""):
+            $output .= $empty;
+        else:
+            $output .= "<a href='$emptyurl' title='$empty'>$empty</a>";
+        endif;
     else:
         foreach ($allDishLists as $dishList):
-            $output .= "<div class=\"demomentsomtres-dish-list\">";
+            $output .= "<div class='demomentsomtres-dish-list$classes'>";
             if (!$hiddenTitles):
                 $output .= "<$titleFormat class=\"demomentsomtres-dish-list-title\">";
+                $output .= $prefix;
                 $output .= $dishList->post_title;
+                $output .= $suffix;
                 $output .= "</$titleFormat>";
             endif;
             $output .= $dishList->post_content;
@@ -290,7 +300,8 @@ function demomentsomtres_restaurant_is_expired($postid) {
  */
 function demomentsomtres_restaurant_expired_message($postid) {
     if (demomentsomtres_restaurant_is_expired($postid)):
-        return '<span class="demomentsomtres-restaurant-expired">' . demomentsomtres_restaurant_pretty_expiry_date($postid) . '</span>';
+        $expiredMessage = DeMomentSomTresTools::adminHelper_get_option(DMS3_RESTAURANT_OPTIONS, 'expired', '');
+        return '<span class="demomentsomtres-restaurant-expired">' . $expiredMessage . demomentsomtres_restaurant_pretty_expiry_date($postid) . '</span>';
     else:
         return '';
     endif;

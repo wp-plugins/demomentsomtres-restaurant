@@ -41,6 +41,7 @@ function demomentsomtres_restaurant_option_page() {
  */
 function demomentsomtres_restaurant_admin_init() {
     register_setting('dmst_restaurant_options', DMS3_RESTAURANT_OPTIONS, 'demomentsomtres_restaurant_validate_options');
+    add_settings_section('dmst_restaurant_expired', __('Expired', DMS3_RESTAURANT_TEXT_DOMAIN), 'demomentsomtres_restaurant_section_expired', 'dmst_restaurant');
     add_settings_section('dmst_restaurant_template', __('Template', DMS3_RESTAURANT_TEXT_DOMAIN), 'demomentsomtres_restaurant_section_template', 'dmst_restaurant');
 }
 
@@ -49,7 +50,7 @@ function demomentsomtres_restaurant_admin_init() {
  */
 function demomentsomtres_restaurant_validate_options($input) {
     $result = $input;
-    $result['template']=trim(preg_replace('/\r\n/', '', $input['template']));
+    $result['template'] = trim(preg_replace('/\r\n/', '', $input['template']));
     return $result;
 }
 
@@ -60,6 +61,17 @@ function demomentsomtres_restaurant_section_template() {
     echo '<p>' . __("This content will be inserted as a template of menu.", DMS3_RESTAURANT_TEXT_DOMAIN) . '</p>';
 
     $template = dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', '');
-    dmst_admin_helper_input(null, DMS3_RESTAURANT_OPTIONS . "[template]", $template,'editor');
+    dmst_admin_helper_input(null, DMS3_RESTAURANT_OPTIONS . "[template]", $template, 'editor');
+    echo '<br/><br/>';
+}
+
+/**
+ * @since 1.2 
+ */
+function demomentsomtres_restaurant_section_expired() {
+    echo '<p>' . __("Message for expired menus.", DMS3_RESTAURANT_TEXT_DOMAIN) . '</p>';
+
+    $expired = dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'expired', '');
+    dmst_admin_helper_input(null, DMS3_RESTAURANT_OPTIONS . "[expired]", $expired);
     echo '<br/><br/>';
 }

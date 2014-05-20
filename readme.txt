@@ -2,8 +2,8 @@
 Contributors: marcqueralt
 Tags: custom post type, restaurant, dishes
 Donate link: http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-restaurant/
-Version: 1.2
 Requires at least: 3.5
+Tested up to: 3.9.1
 License: GPLv2 or later
 
 DeMomentSomTres Restaurants is specifically designed to Restaurants, Bars and cafeterias to show their menus in an easy way.
@@ -14,9 +14,7 @@ DeMomentSomTres Restaurants is specifically designed to Restaurants, Bars and ca
 
 It manages publish date and also expiry date allowing you to plan activity.
 
-To help to standardize and help day menu management, a dishlist template has been added. Button added to tinyMCE editor and also administration page.
-
-You can get more information about the component at the [this plugin author's website](http://DeMomentSomTres.com/english/wordpress-plugin-restaurant/ "This plugin page at DeMomentSomTres website")
+You can get more information about the component at the [this plugin author's website](http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-restaurant/ "This plugin page at DeMomentSomTres website")
 
 = Features =
 
@@ -34,18 +32,25 @@ They also needed a way to show the day menu in the frontpage without rewriting i
 
 == Installation ==
 
-It can be installed as any other WordPress plugin. It doesn't have any special requirements.
+It can be installed as any other WordPress plugin. 
+
+**It requires [DeMomentSomTres Tools Plugin](http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-tools).**
 
 == Frequently Asked Questions ==
 
 = How do I show the last menu of a certain type inside a post or page =
 
-You can use the shortcode `[demomentsomtres-restaurant-dish-list type=id count=N hidden_titles title_format="h3"]` to show the N current dish lists of type id inside the post or page. 
+You can use the shortcode `[demomentsomtres-restaurant-dish-list type=id count=1 hidden_titles title_format="h3" prefix="" suffix="" empty="" emptyurl="" classes=""]` to show the N current dish lists of type id inside the post or page. 
 
-* Type id is required. 
-* Count is assumed to be 1 if not present. 
-* If you want to hide the titles the parameter hidden_titles must be present.
-* You can define the HTML tag for titles using title_format. If no value provided it is assumed to be h3.
+* Type id is required. Type id is the ID of the dishlist type. It can be found on the dishlist types edition page.
+* Count (optional): number of dishlists to show. It is assumed to be 1 if not present. 
+* Hidden titles (optional): If you want to hide the titles the parameter hidden_titles must be present.
+* Title format (optional): You can define the HTML tag for titles using title_format. If no value provided it is assumed to be h3.
+* Prefix (optional): content to add at the start of the title.
+* Suffix (optional): content to add at the end of the title.
+* Empty (optional): text to show if no menu is found.
+* Emptyurl (optional): url to link to if no menu is found.
+* Classes (optional): classes to add to the dishlist in order to customize it.
 
 = Why there's no widget to show the menus lists =
 
@@ -69,8 +74,10 @@ To customize expiry message you can use css class `.demomentsomtres-restaurant-e
 
 == Changelog ==
 
-= 1.2 =
-* Dishlist template added in administration and tinymce button
+= 1.3 =
+* demomentsomtres-restaurant-dish-list shortcode parameters added to include empty message and empty html link and title prefix and title postfix.
+* Editor button to copy menu template.
+* Customized message when menu is expired.
 
 = 1.1.0 =
 
