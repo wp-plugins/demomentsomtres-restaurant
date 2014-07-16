@@ -12,6 +12,17 @@
                             );
                 }
             });
+            ed.addButton('dms3RestaurantCel', {
+                title: 'Gluten Free',
+                image: url + '/icon-glutenfree.png',
+                onclick: function() {
+                    ed.execCommand(
+                            "mceInsertContent",
+                            false,
+                            "[cel]"
+                            );
+                }
+            });
             ed.addButton('dms3RestaurantVeg', {
                 title: 'Veg',
                 image: url + '/icon-veg.png',

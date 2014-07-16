@@ -21,7 +21,7 @@ You can get more information about the component at the [this plugin author's we
 * Dishlist: you can show as many dishes and plates.
 * Specific taxonomy type `dishlist type`: the dish lists can be grouped under an specific taxonomy. So you can have daily menu, vegetarian menus...
 * Shortcode to show last contents of a taxonomy: the short code is designed to show a group of the most recent menus in a dishlist type. It was designed in order to show the current menu in the home page.
-* Shortcodes to mark Ecological, Proximity and Price. This shortcodes has been integrated to the editor in order to make things easy.
+* Shortcodes to mark Ecological, Proximity, Gluten Free and Price. This shortcodes has been integrated to the editor in order to make things easy.
 
 = History & raison d'être =
 
@@ -62,6 +62,7 @@ There'are the following additional shortcodes with the following features:
 
 * [ECO]: inserts an `<i class="icon-eco">Ecological</i>` element.
 * [PROX]: inserts an `<i class="icon-prox">Proximity</i>` element.
+* [CEL]: inserts an `<i class="icon-cel">Gluten Free</i>` element.
 * [P XXX]: inserts an `<div class="price">XXX</div>` element.
 
 = How do I show all the public dish lists =
@@ -73,6 +74,9 @@ You can call the restaurant archive to show the contents on an archive basis.
 To customize expiry message you can use css class `.demomentsomtres-restaurant-expired`.
 
 == Changelog ==
+
+= 1.4 =
+* Gluten free icon and shortcode
 
 = 1.3 =
 * demomentsomtres-restaurant-dish-list shortcode parameters added to include empty message and empty html link and title prefix and title postfix.

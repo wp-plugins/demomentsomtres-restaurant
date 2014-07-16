@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: DeMomentSomTres Restaurant v0.0\n"
+"Project-Id-Version: DeMomentSomTres Restaurant v1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-06-17 09:21:36+0000\n"
+"PO-Revision-Date: 2014-07-16 15:44:22+0000\n"
 "Last-Translator: Marc Queralt <marc@demomentsomtres.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,120 +20,191 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: demomentsomtres-restaurant.php:51
+#: functions.php:9
 #@ dms3-restaurant
 msgctxt "taxonomy general name"
 msgid "Dish List Types"
 msgstr "Tipus de llistes de plats, cartes i menus"
 
-#: demomentsomtres-restaurant.php:52
+#: functions.php:10
 #@ dms3-restaurant
 msgctxt "taxonomy singular name"
 msgid "Dish List Type"
 msgstr "Tipus de llistes de plats, cartes i menús"
 
-#: demomentsomtres-restaurant.php:53
+#: functions.php:11
 #@ dms3-restaurant
 msgid "Search Type"
 msgstr "Buscar tipus"
 
-#: demomentsomtres-restaurant.php:54
+#: functions.php:12
 #@ dms3-restaurant
 msgid "All Types"
 msgstr "Tots els tipus"
 
-#: demomentsomtres-restaurant.php:55
+#: functions.php:13
 #@ dms3-restaurant
 msgid "Parent Type"
 msgstr "Tipus pare"
 
-#: demomentsomtres-restaurant.php:56
+#: functions.php:14
 #@ dms3-restaurant
 msgid "Parent Type:"
 msgstr "Tipus pare:"
 
-#: demomentsomtres-restaurant.php:57
+#: functions.php:15
 #@ dms3-restaurant
 msgid "Edit Type"
 msgstr "Editar tipus"
 
-#: demomentsomtres-restaurant.php:58
+#: functions.php:16
 #@ dms3-restaurant
 msgid "Update Type"
 msgstr "Modificar tipus"
 
-#: demomentsomtres-restaurant.php:59
+#: functions.php:17
 #@ dms3-restaurant
 msgid "Add New Type"
 msgstr "Afegir nou tipus"
 
-#: demomentsomtres-restaurant.php:60
+#: functions.php:18
 #@ dms3-restaurant
 msgid "New Type Name"
 msgstr "Nom del nou tipus"
 
-#: demomentsomtres-restaurant.php:68
+#: functions.php:26
 #@ dms3-restaurant
 msgid "Dish Lists"
 msgstr "Llistes de plats"
 
-#: demomentsomtres-restaurant.php:69
+#: functions.php:27
 #@ dms3-restaurant
 msgid "Dish List"
 msgstr "Llista de plats"
 
-#: demomentsomtres-restaurant.php:70
+#: functions.php:28
 #@ dms3-restaurant
 msgid "Add Dish List"
 msgstr "Afegir llista de plats"
 
-#: demomentsomtres-restaurant.php:71
+#: functions.php:29
 #@ dms3-restaurant
 msgid "Add New Dish List"
 msgstr "Afegir una nova llista de plats"
 
-#: demomentsomtres-restaurant.php:72
+#: functions.php:30
 #@ dms3-restaurant
 msgid "Edit"
 msgstr "Editar"
 
-#: demomentsomtres-restaurant.php:73
+#: functions.php:31
 #@ dms3-restaurant
 msgid "Edit Dish List"
 msgstr "Editar llista de plats"
 
-#: demomentsomtres-restaurant.php:74
+#: functions.php:32
 #@ dms3-restaurant
 msgid "New Dish List"
 msgstr "Nova llista de plats"
 
-#: demomentsomtres-restaurant.php:75
+#: functions.php:33
 #@ dms3-restaurant
 msgid "View"
 msgstr "Veure"
 
-#: demomentsomtres-restaurant.php:76
+#: functions.php:34
 #@ dms3-restaurant
 msgid "View Dish List"
 msgstr "Veure llista de plats"
 
-#: demomentsomtres-restaurant.php:77
+#: functions.php:35
 #@ dms3-restaurant
 msgid "Search Dish List"
 msgstr "Buscar llista de plats"
 
-#: demomentsomtres-restaurant.php:78
+#: functions.php:36
 #@ dms3-restaurant
 msgid "No Dish List found"
 msgstr "No s'ha trobat cap llista de plats"
 
-#: demomentsomtres-restaurant.php:79
+#: functions.php:37
 #@ dms3-restaurant
 msgid "No Dish List found in Trash"
 msgstr "No hi ha cap llista de plats a la paperera"
 
-#: demomentsomtres-restaurant.php:80
+#: functions.php:38
 #@ dms3-restaurant
 msgid "Parent Dish List"
 msgstr "Llista de plats pare"
+
+#: demomentsomtres-admin-helper.php:58
+#@ default
+msgid "&mdash; Select &mdash;"
+msgstr ""
+
+#: demomentsomtres-admin.php:14
+#@ dms3-restaurant
+msgid "DMS3-Restaurant"
+msgstr "DeMomentSomTres Restaurant"
+
+#: demomentsomtres-admin.php:14
+#@ dms3-restaurant
+msgid "Restaurant"
+msgstr "Restaurant"
+
+#: demomentsomtres-admin.php:24
+#@ dms3-restaurant
+msgid "DeMomentSomTres - Restaurant"
+msgstr "DeMomentSomTres - Restaurant"
+
+#: demomentsomtres-admin.php:28
+#@ dms3-restaurant
+msgid "Save Changes"
+msgstr "Desar canvis"
+
+#: demomentsomtres-admin.php:33
+#@ dms3-restaurant
+msgid "Options"
+msgstr "Opcions"
+
+#: demomentsomtres-admin.php:44
+#@ dms3-restaurant
+msgid "Expired"
+msgstr "Vençut"
+
+#: demomentsomtres-admin.php:45
+#@ dms3-restaurant
+msgid "Template"
+msgstr "Plantilla"
+
+#: demomentsomtres-admin.php:61
+#@ dms3-restaurant
+msgid "This content will be inserted as a template of menu."
+msgstr "Aquest contingut s'inserira com a plantilla de menú."
+
+#: demomentsomtres-admin.php:72
+#@ dms3-restaurant
+msgid "Message for expired menus."
+msgstr "Missatge pels menús expirats."
+
+#: functions.php:114
+#@ dms3-restaurant
+msgid "Ecological"
+msgstr "Ecològic"
+
+#: functions.php:119
+#@ dms3-restaurant
+msgid "Vegetarian"
+msgstr "Vegetaria"
+
+#: functions.php:128
+#@ dms3-restaurant
+msgid "Gluten Free"
+msgstr "Sense Gluten"
+
+#: functions.php:171
+#: functions.php:181
+#@ dms3-restaurant
+msgid "Expiry date"
+msgstr "Data d'expiració"
 

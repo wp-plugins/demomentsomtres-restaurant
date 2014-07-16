@@ -120,6 +120,15 @@ function demomentsomtres_restaurant_veg_shortcode() {
     return $output;
 }
 
+/**
+ * 
+ * @since 1.4
+ */
+function demomentsomtres_restaurant_cel_shortcode() {
+    $output = '<i class="icon-cel">' . __('Gluten Free', DMS3_RESTAURANT_TEXT_DOMAIN) . '</i>';
+    return $output;
+}
+
 function demomentsomtres_restaurant_p_shortcode($attr) {
     $output = '<span class="price">' . $attr[0] . '</span>';
     //$output='<pre>'.print_r($attr,true).'</pre>';
@@ -243,7 +252,7 @@ function demomentsomtres_restaurant_insert_buttons() {
  * @since 1.0
  */
 function demomentsomtres_restaurant_register_buttons($buttons) {
-    array_push($buttons, "dms3RestaurantEco", "dms3RestaurantVeg", "dms3RestaurantPrice", "dms3RestaurantTemplate");
+    array_push($buttons, "dms3RestaurantEco", "dms3RestaurantVeg", "dms3RestaurantCel","dms3RestaurantPrice", "dms3RestaurantTemplate");
     return $buttons;
 }
 
