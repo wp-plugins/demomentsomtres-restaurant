@@ -75,6 +75,9 @@ To customize expiry message you can use css class `.demomentsomtres-restaurant-e
 
 == Changelog ==
 
+= 1.5 =
+* Shows a message if DeMomentSomTres Tools is not installed
+
 = 1.4 =
 * Gluten free icon and shortcode
 

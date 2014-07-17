@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package DeMomentSomTres Restaurant
  */
@@ -45,8 +44,9 @@ if (!function_exists('add_action')) {
 require_once DMS3_RESTAURANT_PLUGIN_PATH . 'functions.php';
 
 require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
-if (is_plugin_active('demomentsomtres-tools/demomentsomtres-tools.php')):
-
+if (!is_plugin_active('demomentsomtres-tools/demomentsomtres-tools.php')):
+    add_action('admin_notices', 'demomentsomtres_restaurant_noTools');
+else:
     if (is_admin()):
         require_once DMS3_RESTAURANT_PLUGIN_PATH . 'demomentsomtres-admin-helper.php';
         require_once DMS3_RESTAURANT_PLUGIN_PATH . 'demomentsomtres-admin.php';
@@ -61,11 +61,22 @@ if (is_plugin_active('demomentsomtres-tools/demomentsomtres-tools.php')):
     add_shortcode('cel', 'demomentsomtres_restaurant_cel_shortcode');
     add_shortcode('P', 'demomentsomtres_restaurant_p_shortcode');
     add_action('add_meta_boxes', 'demomentsomtres_restaurant_expiry_date');
-    add_action('save_post', 'demomentsomtres_restaurant_meta_save');//v1.4
+    add_action('save_post', 'demomentsomtres_restaurant_meta_save'); //v1.4
 //add_action( 'pre_get_posts', 'demomentsomtres_restaurant_filter_expired' ); //v1.1.0-
     add_action('the_content', 'demomentsomtres_restaurant_content_expired_filter');
     add_action('admin_head', 'demomentsomtres_restaurant_insert_buttons');
 
     add_filter('tiny_mce_before_init', 'demomentsomtres_restaurant_tinymce_settings');
 endif;
+
+function demomentsomtres_restaurant_noTools() {
+    ?>
+    <div class="error">
+        <p><?php _e('The DeMomentSomTres Restautant plugin requires the free DeMomentSomTres Tools plugin.', DMS3_RESTAURANT_TEXT_DOMAIN); ?>
+            <br/>
+            <a href="http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-tools/?utm_source=web&utm_medium=wordpress&utm_campaign=adminnotice&utm_term=dms3Restaurant" target="_blank"><?php _e('Download it here', DMS3_RESTAURANT_TEXT_DOMAIN); ?></a>
+        </p>
+    </div>
+    <?php
+}
 ?>

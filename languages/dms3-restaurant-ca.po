@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: DeMomentSomTres Restaurant v1.3\n"
+"Project-Id-Version: DeMomentSomTres Restaurant v1.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-07-16 15:44:22+0000\n"
+"PO-Revision-Date: 2014-07-17 06:16:45+0000\n"
 "Last-Translator: Marc Queralt <marc@demomentsomtres.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -207,4 +207,14 @@ msgstr "Sense Gluten"
 #@ dms3-restaurant
 msgid "Expiry date"
 msgstr "Data d'expiració"
+
+#: demomentsomtres-restaurant.php:75
+#@ dms3-restaurant
+msgid "The DeMomentSomTres Restautant plugin requires the free DeMomentSomTres Tools plugin."
+msgstr "L'extensió DeMomentSomTres Restaurant necessita per funcionar que instal·leu l'extensió gratuïta DeMomentSomTres Tools."
+
+#: demomentsomtres-restaurant.php:77
+#@ dms3-restaurant
+msgid "Download it here"
+msgstr "Descarregeu-la aquí"
 
