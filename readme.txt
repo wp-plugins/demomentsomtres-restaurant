@@ -14,7 +14,7 @@ DeMomentSomTres Restaurants is specifically designed to Restaurants, Bars and ca
 
 It manages publish date and also expiry date allowing you to plan activity.
 
-You can get more information about the component at the [this plugin author's website](http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-restaurant/ "This plugin page at DeMomentSomTres website")
+You can get more information about the component at [this plugin author's website](http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-restaurant/ "This plugin page at DeMomentSomTres website")
 
 = Features =
 
