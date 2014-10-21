@@ -52,7 +52,8 @@
                     ed.execCommand(
                             "mceInsertContent",
                             false,
-                            tinymce.activeEditor.settings.dms3restauranttemplate
+                            //tinymce.activeEditor.settings.dms3restauranttemplate
+                            dms3Restaurant.template
                             );
                 }
             });

@@ -6,7 +6,7 @@
   Plugin Name: DeMomentSomTres Restaurant
   Plugin URI: http://DeMomentSomTres.com/english/wordpress-plugin-restaurant
   Description: DeMomentSomTres Restaurants creates a custom type to represent restaurant lists and menus and show them using shortcodes and menu entries.
-  Version: 1.4
+  Version: 1.6
   Author: DeMomentSomTres
   Author URI: http://DeMomentSomTres.com
   License: GPLv2 or later
@@ -31,6 +31,7 @@
 define('DMS3_RESTAURANT_TEXT_DOMAIN', 'dms3-restaurant');
 define('DMS3_RESTAURANT_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('DMS3_RESTAURANT_PLUGIN_DIR', dirname(plugin_basename(__FILE__)));
+define('DMS3_RESTAURANT_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('DMS3_RESTAURANT_OPTIONS', 'DMS3_RESTAURANT_OPTIONS');
 /* used when no value is specified for the expiry date */
 define('DMS3_RESTAURANT_LAST_DATE', '9999-12-31');
@@ -43,8 +44,9 @@ if (!function_exists('add_action')) {
 
 require_once DMS3_RESTAURANT_PLUGIN_PATH . 'functions.php';
 
-require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
-if (!is_plugin_active('demomentsomtres-tools/demomentsomtres-tools.php')):
+if (!function_exists('is_plugin_active'))
+    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+if ((!is_plugin_active('demomentsomtres-tools/demomentsomtres-tools.php')) && (!is_plugin_active_for_network('demomentsomtres-tools/demomentsomtres-tools.php'))):
     add_action('admin_notices', 'demomentsomtres_restaurant_noTools');
 else:
     if (is_admin()):
@@ -62,11 +64,14 @@ else:
     add_shortcode('P', 'demomentsomtres_restaurant_p_shortcode');
     add_action('add_meta_boxes', 'demomentsomtres_restaurant_expiry_date');
     add_action('save_post', 'demomentsomtres_restaurant_meta_save'); //v1.4
-//add_action( 'pre_get_posts', 'demomentsomtres_restaurant_filter_expired' ); //v1.1.0-
+//  add_action( 'pre_get_posts', 'demomentsomtres_restaurant_filter_expired' ); //v1.1.0-
     add_action('the_content', 'demomentsomtres_restaurant_content_expired_filter');
     add_action('admin_head', 'demomentsomtres_restaurant_insert_buttons');
+    
+    add_action('admin_enqueue_scripts','demomentsomtres_restaurant_enqueue_scripts'); //1.5+
+    
 
-    add_filter('tiny_mce_before_init', 'demomentsomtres_restaurant_tinymce_settings');
+//    add_filter('tiny_mce_before_init', 'demomentsomtres_restaurant_tinymce_settings'); //v1.5-
 endif;
 
 function demomentsomtres_restaurant_noTools() {
@@ -75,6 +80,7 @@ function demomentsomtres_restaurant_noTools() {
         <p><?php _e('The DeMomentSomTres Restautant plugin requires the free DeMomentSomTres Tools plugin.', DMS3_RESTAURANT_TEXT_DOMAIN); ?>
             <br/>
             <a href="http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-tools/?utm_source=web&utm_medium=wordpress&utm_campaign=adminnotice&utm_term=dms3Restaurant" target="_blank"><?php _e('Download it here', DMS3_RESTAURANT_TEXT_DOMAIN); ?></a>
+            <br/>
         </p>
     </div>
     <?php

@@ -14,7 +14,7 @@ DeMomentSomTres Restaurants is specifically designed to Restaurants, Bars and ca
 
 It manages publish date and also expiry date allowing you to plan activity.
 
-You can get more information about the component at [this plugin author's website](http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-restaurant/ "This plugin page at DeMomentSomTres website")
+You can get more information about the component at the [this plugin author's website](http://demomentsomtres.com/english/wordpress-plugins/demomentsomtres-restaurant/ "This plugin page at DeMomentSomTres website")
 
 = Features =
 
@@ -74,6 +74,9 @@ You can call the restaurant archive to show the contents on an archive basis.
 To customize expiry message you can use css class `.demomentsomtres-restaurant-expired`.
 
 == Changelog ==
+
+= 1.6 =
+* Compatibility upgrade to 4.0 and WPBakery Visual Composer
 
 = 1.5 =
 * Shows a message if DeMomentSomTres Tools is not installed

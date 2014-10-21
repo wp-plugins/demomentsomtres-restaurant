@@ -203,7 +203,10 @@ function demomentsomtres_restaurant_meta_save($post) {
 function demomentsomtres_restaurant_get_expiry_date($id) {
     $expiry = get_post_meta($id, 'demomentsomtres-restaurant-expiry-date', true);
     if (empty($expiry)):
-        $expiry = DMS3_RESTAURANT_LAST_DATE;
+        //    $expiry = DMS3_RESTAURANT_LAST_DATE;
+        $day = new DateTime();
+        $day->add(new DateInterval('P1M'));
+        $expiry = $day->format('Y-m-d');
     endif;
     return $expiry;
 }
@@ -252,7 +255,7 @@ function demomentsomtres_restaurant_insert_buttons() {
  * @since 1.0
  */
 function demomentsomtres_restaurant_register_buttons($buttons) {
-    array_push($buttons, "dms3RestaurantEco", "dms3RestaurantVeg", "dms3RestaurantCel","dms3RestaurantPrice", "dms3RestaurantTemplate");
+    array_push($buttons, "dms3RestaurantEco", "dms3RestaurantVeg", "dms3RestaurantCel", "dms3RestaurantPrice", "dms3RestaurantTemplate");
     return $buttons;
 }
 
@@ -335,13 +338,26 @@ function demomentsomtres_restaurant_pretty_expiry_date($postid) {
  * @param array $settings
  * @return array
  * @since 1.2
+ * @deprecated 1.5
  */
 function demomentsomtres_restaurant_tinymce_settings($settings) {
 //    print_r(htmlentities(dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', '')));
-    $settings['dms3restauranttemplate'] = '<![CDATA[' . htmlentities(dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', '')) . ']]>';
+//    $settings['dms3restauranttemplate'] = '<![CDATA[' . htmlentities(dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', '')) . ']]>';
     $settings['dms3restauranttemplate'] = dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', '');
 //    echo '<pre>';print_r($settings);echo '</pre>';
     return $settings;
+}
+
+/**
+ * @since 1.6
+ */
+function demomentsomtres_restaurant_enqueue_scripts($hook) {
+//    echo DMS3_RESTAURANT_PLUGIN_DIR.'/js/demomentsomtres-restaurant.js';exit;
+    wp_enqueue_script('dms3Restaurant', DMS3_RESTAURANT_PLUGIN_URL . '/js/demomentsomtres-restaurant.js');
+    $translation_array = array(
+        'template' => dmst_admin_helper_get_option(DMS3_RESTAURANT_OPTIONS, 'template', ''),
+    );
+    wp_localize_script('dms3Restaurant', 'dms3Restaurant', $translation_array);
 }
 
 ?>
