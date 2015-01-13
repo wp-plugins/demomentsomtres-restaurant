@@ -1,0 +1,10 @@
+i.icon-eco {
+    background-image: url(mce_plugins/icon-eco.png);
+}
+i.icon-veg {
+    
+}
+span.price {
+    display: block;
+    float: right;
+}
